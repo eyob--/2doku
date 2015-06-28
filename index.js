@@ -9,56 +9,60 @@ app.get('/', function(req, res) {
 	res.sendFile(__dirname + '/index.html');
 });
 
-var rooms = [];
-var roomNames = [];
-var fullRooms = [];
+var rooms = {};
+var fullRooms = new Set;
 
-function Room(name, socket1, socket2) {
-	this.name = name;
-	this.socket1 = socket1;
-	this.socket2 = socket2;
-}
+var Room = (function() {
+	function Room() {
 
-Room.prototype.isEmpty = function() {
-	return this.socket1 === null && this.socket2 === null;
-}
+	}
+	var proto = Room.prototype;
+	proto.isEmpty = function() {
+		return !(this.left || this.right);
+	}
+	proto.setName = function(name) {
+		this.name = name;
+	}
+	proto.setLeft = function(socket) {
+		this.left = socket;
+	}
+	proto.setRight = function(socket) {
+		this.right = socket;
+	}
+	return Room;
+})();
 
 io.on('connection', function(socket) {
 	console.log('user connection');
-	console.log(fullRooms);
 	io.emit('rooms', { arr: fullRooms });
 
-	var room = null;
+	var room = new Room();
 
 	socket.on('joined', function(roomName) {
 		console.log(roomName + ' joined');
-		if (!~roomNames.indexOf(roomName)) {
-			room = new Room(roomName, socket, null);
-			rooms.push(room);
-			roomNames.push(roomName);
+		if (!rooms[roomName]) {
+			rooms[roomName] = room;
+			room.setName(roomName);
+			room.setLeft(socket);
 		}
 		else {
-			var i = roomNames.indexOf(roomName);
-			rooms[i].socket2 = socket;
-			room = rooms[i];
-			fullRooms.push(roomName);
+			room.setRight(socket);
+			fullRooms.add(roomName);
 		}
 	});
 
 	socket.on('disconnect', function() {
-		if (room.socket1 === socket) {
-			room.socket1 === null;
+		if (room.left === socket) {
+			room.left = null;
 		}
 		else {
-			room.socket2 === null;
+			room.right = null;
 		}
-		if (fullRooms.indexOf(room.name) !== -1) {
-			fullRooms.splice(fullRooms.indexOf(room.name), 1);
+		if (fullRooms.has(roomName)) {
+			fullRooms.delete(roomName);
 		}
 		if (room.isEmpty()) {
-			var i = roomNames.indexOf(room.name);
-			roomNames.splice(i, 1);
-			rooms.splice(i, 1);
+			delete rooms[room.name];
 		}
 		console.log('user disconnection');
 	});
