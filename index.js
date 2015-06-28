@@ -33,8 +33,12 @@ var Room = (function() {
 })();
 
 io.on('connection', function(socket) {
+	var arr = [];
+	for (x of fullRooms) {
+		arr.push(x);
+	}
+	io.emit('rooms', { arr: arr });
 	console.log('user connection');
-	io.emit('rooms', { arr: fullRooms });
 
 	var room = new Room();
 
