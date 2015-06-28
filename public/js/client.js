@@ -3,18 +3,25 @@
 
 	var fullRooms = null;
 
+
+
 	socket.on('rooms', function(rooms) {
-		rooms = rooms['arr'];
-		console.log('rooms received: '+rooms);
+		rooms = rooms.arr;
 		fullRooms = rooms;
-		var roomName = prompt('Join a room!');
-		console.log(roomName)
-		while(fullRooms === null || fullRooms.indexOf(roomName) !== -1) {
-			console.log(fullRooms);
-			var roomName = prompt('Sorry, that room is taken! Join another room!');
-		}
 	});
 
-	socket.emit('joined', roomName);
+
+  $('form').submit(function() {
+    var roomName = $('#roomRequest').val();
+    if (fullRooms === null || fullRooms.indexOf(roomName) !== -1) {
+      $('#roomRequest').val('');
+      alert('Sorry that room is already taken!');
+    }
+    else {
+      $('#roomPrompt').remove();
+      socket.emit('joined', roomName);
+    }
+    return false;
+  });
 
 })();

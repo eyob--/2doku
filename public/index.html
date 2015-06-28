@@ -3,11 +3,20 @@
 
   <head>
     <title>2doku</title>
+    <link type="text/css" rel="stylesheet" href="css/stylesheet.css" />
   </head>
 
   <body>
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+
+    <div id="roomPrompt">
+      <h1>Join a Room!</h1>
+      <form action="">
+        <input id="roomRequest" autocomplete="off" autofocus />
+      </form>
+    </div>
+
     <script src="js/client.js"></script>
   </body>
 
