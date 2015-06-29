@@ -50,6 +50,7 @@ io.on('connection', function(socket) {
 			room.setLeft(socket);
 		}
 		else {
+      room = rooms[roomName];
 			room.setRight(socket);
 			fullRooms.add(roomName);
 		}
@@ -62,8 +63,13 @@ io.on('connection', function(socket) {
 		else {
 			room.right = null;
 		}
-		if (fullRooms.has(roomName)) {
-			fullRooms.delete(roomName);
+		if (fullRooms.has(room.name)) {
+      fullRooms.delete(room.name);
+      var arr = [];
+    	for (x of fullRooms) {
+    		arr.push(x);
+    	}
+    	io.emit('rooms', { arr: arr });
 		}
 		if (room.isEmpty()) {
 			delete rooms[room.name];
