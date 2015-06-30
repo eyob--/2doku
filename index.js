@@ -33,6 +33,7 @@ var Room = (function() {
 })();
 
 io.on('connection', function(socket) {
+
 	var arr = [];
 	for (x of fullRooms) {
 		arr.push(x);
@@ -48,11 +49,13 @@ io.on('connection', function(socket) {
 			rooms[roomName] = room;
 			room.setName(roomName);
 			room.setLeft(socket);
+			socket.emit('wait');
 		}
 		else {
-      room = rooms[roomName];
+			room = rooms[roomName];
 			room.setRight(socket);
 			fullRooms.add(roomName);
+			room.left.emit('stop wait');
 		}
 	});
 
@@ -64,12 +67,12 @@ io.on('connection', function(socket) {
 			room.right = null;
 		}
 		if (fullRooms.has(room.name)) {
-      fullRooms.delete(room.name);
-      var arr = [];
-    	for (x of fullRooms) {
-    		arr.push(x);
-    	}
-    	io.emit('rooms', { arr: arr });
+			fullRooms.delete(room.name);
+			var arr = [];
+			for (x of fullRooms) {
+				arr.push(x);
+    		}
+    		io.emit('rooms', { arr: arr });
 		}
 		if (room.isEmpty()) {
 			delete rooms[room.name];
