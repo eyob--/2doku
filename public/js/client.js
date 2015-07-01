@@ -18,7 +18,7 @@
 		alert('Sorry that room is already taken!');
 	}
 	else {
-		$('#roomPrompt').fadeOut();
+		$('#roomPrompt').fadeOut('slow');
 		socket.emit('joined', roomName);
 	}
 	return false;
@@ -26,7 +26,7 @@
 
 	socket.on('wait', function() {
 		setTimeout(function() {
-			$('#waitText').fadeIn('slow');
+			$('#waitText').fadeIn(1500);
 		}, 1000);
 	});
 
