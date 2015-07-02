@@ -59,6 +59,11 @@ io.on('connection', function(socket) {
 		}
 	});
 
+	socket.on('clients ready', function() {
+		room.left.emit('play');
+		room.right.emit('play');
+	});
+
 	socket.on('disconnect', function() {
 		if (room.left === socket) {
 			room.left = null;

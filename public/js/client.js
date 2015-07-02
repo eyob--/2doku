@@ -4,6 +4,9 @@
 	var fullRooms = null;
 
 	$('#waitText').hide();
+	$('#ready').hide();
+	$('#set').hide();
+	$('#play').hide();
 
 	socket.on('rooms', function(rooms) {
 		rooms = rooms.arr;
@@ -31,7 +34,33 @@
 	});
 
 	socket.on('stop wait', function() {
-		$('#waitText').fadeOut('slow');
+		$('#waitText').fadeOut('slow', function() {
+			socket.emit('clients ready');
+		});
+	});
+
+	socket.on('play', function() {
+		$('#ready').fadeIn(1000, function() {
+			setTimeout(function() {
+				$('#ready').fadeOut(1000, function() {
+					setTimeout(function() {
+						$('#set').fadeIn(1000, function() {
+							setTimeout(function() {
+								$('#set').fadeOut(1000, function() {
+									setTimeout(function() {
+										$('#play').fadeIn(1000, function() {
+											setTimeout(function() {
+												$('#play').fadeOut(1000);
+											}, 1000);
+										});
+									}, 500);
+								});
+							}, 1000);
+						});
+					}, 500);
+				});
+			}, 1000);
+		});
 	});
 
 })();
