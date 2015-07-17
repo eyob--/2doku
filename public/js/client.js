@@ -7,9 +7,7 @@
 	var roomPrompt = $('#roomPrompt'),
 		roomRequest = $('#roomRequest'),
 		waitText = $('#waitText'),
-		ready = $('#ready'),
-		set = $('#set'),
-		play = $('#play'),
+		readySetPlay = $('#ready-set-play'),
 		game = $('#game');
 
 	$('div').hide();
@@ -47,17 +45,19 @@
 	});
 
 	socket.on('play', function() {
-		ready.fadeIn(1000, function() {
+		readySetPlay.fadeIn(1000, function() {
 			setTimeout(function() {
-				ready.fadeOut(1000, function() {
+				readySetPlay.fadeOut(1000, function() {
 					setTimeout(function() {
-						set.fadeIn(1000, function() {
+						readySetPlay.children().text('Set');
+						readySetPlay.fadeIn(1000, function() {
 							setTimeout(function() {
-								set.fadeOut(1000, function() {
+								readySetPlay.fadeOut(1000, function() {
 									setTimeout(function() {
-										play.fadeIn(1000, function() {
+										readySetPlay.children().text('Play!');
+										readySetPlay.fadeIn(1000, function() {
 											setTimeout(function() {
-												play.fadeOut(1000, function() {
+												readySetPlay.fadeOut(1000, function() {
 													setTimeout(function() {
 														game.show();
 													}, 200);
