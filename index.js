@@ -67,9 +67,15 @@ io.on('connection', function(socket) {
 	socket.on('disconnect', function() {
 		if (room.left === socket) {
 			room.left = null;
+			if (room.right !== null) {
+				room.right.emit('opponent disconnection');
+			}
 		}
 		else {
 			room.right = null;
+			if (room.left !== null) {
+				room.left.emit('opponent disconnection');
+			}
 		}
 		if (fullRooms.has(room.name)) {
 			fullRooms.delete(room.name);

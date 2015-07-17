@@ -74,4 +74,10 @@
 		});
 	});
 
+	socket.on('opponent disconnection', function() {
+		$('div').fadeOut(function() {
+			$('#disconnect').fadeIn(1000);
+		});
+	});
+
 })();
