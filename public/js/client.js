@@ -3,10 +3,8 @@
 
 	var fullRooms = null;
 
-	$('#waitText').hide();
-	$('#ready').hide();
-	$('#set').hide();
-	$('#play').hide();
+	$('div').hide();
+	$('#roomPrompt').show();
 
 	socket.on('rooms', function(rooms) {
 		rooms = rooms.arr;
@@ -50,7 +48,11 @@
 									setTimeout(function() {
 										$('#play').fadeIn(1000, function() {
 											setTimeout(function() {
-												$('#play').fadeOut(1000);
+												$('#play').fadeOut(1000, function() {
+													setTimeout(function() {
+														$('#game').show();
+													}, 200);
+												});
 											}, 1000);
 										});
 									}, 500);

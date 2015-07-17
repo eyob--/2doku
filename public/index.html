@@ -17,9 +17,11 @@
       </form>
     </div>
 
+
     <div class="pregameText" id="waitText">
         <h1>Waiting for opponent to join</h1>
     </div>
+
 
     <div class="pregameText" id="ready">
         <h1>Ready</h1>
@@ -31,6 +33,513 @@
 
     <div class="pregameText" id="play">
         <h1>Play!</h1>
+    </div>
+
+
+    <div id="game">
+        <table>
+            <tr>
+                <td class="3x3">
+                    <table>
+                        <tr>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="00" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="01" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="02" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="10" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="11" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="12" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="20" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="21" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="22" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="3x3">
+                    <table>
+                        <tr>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="03" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="04" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="05" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="13" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="14" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="15" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="23" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="24" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="25" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="3x3">
+                    <table>
+                        <tr>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="06" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="07" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="08" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="16" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="17" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="18" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="26" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="27" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="28" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="3x3">
+                    <table>
+                        <tr>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="30" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="31" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="32" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="40" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="41" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="42" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="50" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="51" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="52" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="3x3">
+                    <table>
+                        <tr>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="33" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="34" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="35" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="43" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="44" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="45" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="53" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="54" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="55" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="3x3">
+                    <table>
+                        <tr>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="36" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="37" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="38" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="46" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="47" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="48" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="56" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="57" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="58" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="3x3">
+                    <table>
+                        <tr>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="60" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="61" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="62" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="70" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="71" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="72" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="80" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="81" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="82" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="3x3">
+                    <table>
+                        <tr>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="63" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="64" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="65" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="73" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="74" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="75" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="83" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="84" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="85" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="3x3">
+                    <table>
+                        <tr>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="66" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="67" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="68" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="76" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="77" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="78" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="86" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="87" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                            <td class="sudokuBox">
+                                <form action="">
+                                    <input id="88" autocomplete="off" autofocus maxlength="1" />
+                                </form>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
     </div>
 
     <script src="js/client.js"></script>
