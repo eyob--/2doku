@@ -75,9 +75,11 @@
 	});
 
 	socket.on('opponent disconnection', function() {
-		$('div').fadeOut(function() {
+		console.log('hi');
+		$('div').fadeOut();
+		setTimeout(function() {
 			$('#disconnect').fadeIn(1000);
-		});
+		}, 500);
 	});
 
 })();
