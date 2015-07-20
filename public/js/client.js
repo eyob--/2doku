@@ -8,7 +8,8 @@
 		roomRequest = $('#roomRequest'),
 		waitText = $('#waitText'),
 		readySetPlay = $('#ready-set-play'),
-		game = $('#game');
+		game = $('#game'),
+		progress = $('#progress');
 
 	$('div').hide();
 	roomPrompt.show();
@@ -60,6 +61,7 @@
 												readySetPlay.fadeOut(1000, function() {
 													setTimeout(function() {
 														game.show();
+														progress.show();
 													}, 200);
 												});
 											}, 1000);
