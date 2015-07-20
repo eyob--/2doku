@@ -66,14 +66,14 @@ io.on('connection', function(socket) {
 
 	socket.on('disconnect', function() {
 		if (room.left === socket) {
-			room.left = null;
-			if (room.right !== null) {
+			room.left = undefined;
+			if (room.right !== undefined) {
 				room.right.emit('opponent disconnection');
 			}
 		}
 		else {
-			room.right = null;
-			if (room.left !== null) {
+			room.right = undefined;
+			if (room.left !== undefined) {
 				room.left.emit('opponent disconnection');
 			}
 		}

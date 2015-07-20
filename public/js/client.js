@@ -77,7 +77,6 @@
 	});
 
 	socket.on('opponent disconnection', function() {
-		console.log('hi');
 		$('div').fadeOut();
 		setTimeout(function() {
 			$('#disconnect').fadeIn(1000);
