@@ -2,7 +2,7 @@
 	var socket = io();
 
 	var fullRooms = null;
-
+	var disconnect = false;
 
 	var roomPrompt = $('#roomPrompt'),
 		roomRequest = $('#roomRequest'),
@@ -45,38 +45,53 @@
 		});
 	});
 
+	// I've found one of the pyramids of Giza everybody!
 	socket.on('play', function() {
 		readySetPlay.fadeIn(1000, function() {
 			setTimeout(function() {
-				readySetPlay.fadeOut(1000, function() {
-					setTimeout(function() {
-						readySetPlay.children().text('Set');
-						readySetPlay.fadeIn(1000, function() {
-							setTimeout(function() {
-								readySetPlay.fadeOut(1000, function() {
+				if (!disconnect) {
+					readySetPlay.fadeOut(1000, function() {
+						setTimeout(function() {
+							if (!disconnect) {
+								readySetPlay.children().text('Set');
+								readySetPlay.fadeIn(1000, function() {
 									setTimeout(function() {
-										readySetPlay.children().text('Play!');
-										readySetPlay.fadeIn(1000, function() {
-											setTimeout(function() {
-												readySetPlay.fadeOut(1000, function() {
-													setTimeout(function() {
-														game.show();
-														progress.show();
-													}, 200);
-												});
-											}, 1000);
-										});
-									}, 500);
+										if (!disconnect) {
+											readySetPlay.fadeOut(1000, function() {
+												setTimeout(function() {
+													if (!disconnect) {
+														readySetPlay.children().text('Play!');
+														readySetPlay.fadeIn(1000, function() {
+															setTimeout(function() {
+																if (!disconnect) {
+																	readySetPlay.fadeOut(1000, function() {
+																		setTimeout(function() {
+																			if (!disconnect) {
+																				game.show();
+																				progress.show();
+																			}
+																		}, 200);
+																	});
+																}
+															}, 1000);
+														});
+													}
+												}, 500);
+											});
+										}
+									}, 1000);
 								});
-							}, 1000);
-						});
-					}, 500);
-				});
+							}
+						}, 500);
+					});
+				}
 			}, 1000);
 		});
 	});
 
 	socket.on('opponent disconnection', function() {
+		disconnect = true;
+		$('div').stop(true, true);
 		$('div').fadeOut();
 		setTimeout(function() {
 			$('#disconnect').fadeIn(1000);
