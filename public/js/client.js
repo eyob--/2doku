@@ -1,5 +1,7 @@
+var board = null;
+var socket = io();
+
 (function() {
-	var socket = io();
 
 	var fullRooms = null;
 	var disconnect = false;
@@ -46,7 +48,8 @@
 	});
 
 	// I've found one of the pyramids of Giza everybody!
-	socket.on('play', function() {
+	socket.on('play', function(puzzle) {
+		board = puzzle;
 		readySetPlay.fadeIn(1000, function() {
 			setTimeout(function() {
 				if (!disconnect) {

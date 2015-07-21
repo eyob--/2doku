@@ -1,7 +1,5 @@
 (function() {
 
-    var log = console.log.bind(console);
-
     $('#game input').change(function() {
         if (errorExists()) {
             $('body').css('background-color', 'red');
@@ -45,7 +43,6 @@
         for (var corner = 0; corner < 9; corner++) {
             var startRow = (corner / 3 | 0) * 3;
             var startCol = corner % 3 * 3;
-            log(startRow+''+startCol)
             var nums = [];
             for (var row = startRow; row < startRow + 3; row++) {
                 for (var col = startCol; col < startCol + 3; col++) {

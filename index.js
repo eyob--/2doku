@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var srv = require('http').Server(app);
 var io = require('socket.io')(srv);
+var sudoku = require('sudoku');
 
 app.use(express.static('./public'));
 
@@ -29,6 +30,9 @@ var Room = (function() {
 	proto.setRight = function(socket) {
 		this.right = socket;
 	}
+	proto.setBoard = function(board) {
+		this.board = board;
+	}
 	return Room;
 })();
 
@@ -49,6 +53,7 @@ io.on('connection', function(socket) {
 			rooms[roomName] = room;
 			room.setName(roomName);
 			room.setLeft(socket);
+			room.setBoard(sudoku.makepuzzle());
 			socket.emit('wait');
 		}
 		else {
@@ -60,8 +65,8 @@ io.on('connection', function(socket) {
 	});
 
 	socket.on('clients ready', function() {
-		room.left.emit('play');
-		room.right.emit('play');
+		room.left.emit('play', room.board);
+		room.right.emit('play', room.board);
 	});
 
 	socket.on('disconnect', function() {
