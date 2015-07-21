@@ -99,7 +99,7 @@ var socket = io();
 				console.log(''+row+col+' '+posfor(row,col));
 				pos = board[posfor(row, col)];
 				if (pos !== null) {
-					$('#'+row+col).val(''+pos+1).prop('disabled', true);
+					$('#'+row+col).val('' + (++pos)).prop('disabled', true);
 				}
 			}
 		}
