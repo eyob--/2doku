@@ -47,9 +47,9 @@ var socket = io();
 		});
 	});
 
-	// I've found one of the pyramids of Giza everybody!
 	socket.on('play', function(puzzle) {
 		board = puzzle;
+		loadBoard(puzzle);
 		readySetPlay.fadeIn(1000, function() {
 			setTimeout(function() {
 				if (!disconnect) {
@@ -91,6 +91,23 @@ var socket = io();
 			}, 1000);
 		});
 	});
+
+	var loadBoard = function(board) {
+		var pos;
+		for (var row = 0; row < 9; row++) {
+			for (var col = 0; col < 9; col++) {
+				console.log(''+row+col+' '+posfor(row,col));
+				pos = board[posfor(row, col)];
+				if (pos !== null) {
+					$('#'+row+col).val(''+pos).prop('disabled', true);
+				}
+			}
+		}
+	}
+
+	var posfor = function(row, col) {
+		return 9 * row + col;
+	}
 
 	socket.on('opponent disconnection', function() {
 		disconnect = true;
