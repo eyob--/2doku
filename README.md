@@ -1,2 +1,2 @@
 # 2doku
-2-Player timed sudoku
+2-Player PvP sudoku
