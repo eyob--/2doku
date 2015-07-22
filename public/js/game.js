@@ -1,13 +1,32 @@
 (function() {
 
+    var points;
+
+    var body = $('body'),
+        user_progress = $('#user_progress');
+
     $('#game input').change(function() {
         if (errorExists()) {
-            $('body').css('background-color', 'red');
+            body.css('background-color', 'red');
         }
         else {
-            $('body').css('background-color', 'white');
+            body.css('background-color', 'white');
+            points = countboxes();
+            user_progress.val((points));
         }
     });
+
+    var countboxes = function() {
+        var count = 0;
+        for (var row = 0; row < 9; row++) {
+            for (var col = 0; col < 9; col++) {
+                if ($('#'+row+col).val()) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
 
     var errorExists = function() {
         // check for row errors

@@ -1,8 +1,8 @@
-var board = null;
 var socket = io();
 
 (function() {
 
+	var board = null;
 	var fullRooms = null;
 	var disconnect = false;
 
@@ -96,7 +96,6 @@ var socket = io();
 		var pos;
 		for (var row = 0; row < 9; row++) {
 			for (var col = 0; col < 9; col++) {
-				console.log(''+row+col+' '+posfor(row,col));
 				pos = board[posfor(row, col)];
 				if (pos !== null) {
 					$('#'+row+col).val('' + (++pos)).prop('disabled', true);
