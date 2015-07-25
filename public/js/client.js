@@ -134,6 +134,14 @@ var countboxes = function() {
 		opponent_progress.val(opponent_points);
 	});
 
+	var showLoseScreen = function() {
+		$('div').fadeOut();
+		$('#win_lose h1').text('You Lose!');
+		$('#win_lose').fadeIn();
+	}
+
+	socket.on('lose', showLoseScreen);
+
 	socket.on('opponent disconnection', function() {
 		disconnect = true;
 		$('div').stop(true, true);

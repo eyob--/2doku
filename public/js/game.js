@@ -12,8 +12,18 @@
             points = countboxes();
             user_progress.val(points);
             socket.emit('update progress', points);
+            if (points === 81) {
+              socket.emit('win');
+              showWinScreen();
+            }
         }
     });
+
+    var showWinScreen = function() {
+      $('div').fadeOut();
+  		$('#win_lose h1').text('You Win!');
+  		$('#win_lose').fadeIn();
+    }
 
     var errorExists = function() {
         // check for row errors

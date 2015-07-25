@@ -78,6 +78,15 @@ io.on('connection', function(socket) {
 		}
 	});
 
+	socket.on('win', function() {
+		if (room.left === socket) {
+			room.right.emit('lose');
+		}
+		else {
+			room.left.emit('lose');
+		}
+	})
+
 	socket.on('disconnect', function() {
 		if (room.left === socket) {
 			room.left = undefined;
