@@ -69,6 +69,15 @@ io.on('connection', function(socket) {
 		room.right.emit('play', room.board);
 	});
 
+	socket.on('update progress', function(points) {
+		if (room.left === socket) {
+			room.right.emit('update progress', points);
+		}
+		else {
+			room.left.emit('update progress', points);
+		}
+	});
+
 	socket.on('disconnect', function() {
 		if (room.left === socket) {
 			room.left = undefined;

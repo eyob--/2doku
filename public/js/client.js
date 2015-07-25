@@ -26,6 +26,7 @@ var countboxes = function() {
 		readySetPlay = $('#ready-set-play'),
 		game = $('#game'),
 		progress = $('#progress');
+		opponent_progress = $('#opponent_progress');
 
 	$('div').hide();
 	roomPrompt.show();
@@ -128,6 +129,10 @@ var countboxes = function() {
 	var posfor = function(row, col) {
 		return 9 * row + col;
 	}
+
+	socket.on('update progress', function(opponent_points) {
+		opponent_progress.val(opponent_points);
+	});
 
 	socket.on('opponent disconnection', function() {
 		disconnect = true;

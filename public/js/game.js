@@ -11,6 +11,7 @@
             body.css('background-color', 'white');
             points = countboxes();
             user_progress.val(points);
+            socket.emit('update progress', points);
         }
     });
 
