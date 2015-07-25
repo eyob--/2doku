@@ -1,5 +1,19 @@
 var socket = io();
 
+var points;
+
+var countboxes = function() {
+    var count = 0;
+    for (var row = 0; row < 9; row++) {
+        for (var col = 0; col < 9; col++) {
+            if ($('#'+row+col).val()) {
+                count++;
+            }
+        }
+    }
+    return count;
+};
+
 (function() {
 
 	var board = null;
