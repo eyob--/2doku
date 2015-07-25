@@ -70,8 +70,7 @@ var socket = io();
 																	readySetPlay.fadeOut(1000, function() {
 																		setTimeout(function() {
 																			if (!disconnect) {
-																				game.show();
-																				progress.show();
+																				showScreen();
 																			}
 																		}, 200);
 																	});
@@ -91,6 +90,14 @@ var socket = io();
 			}, 1000);
 		});
 	});
+
+	var showScreen = function() {
+		game.show();
+		progress.show();
+		points = countboxes();
+		$('#user_progress').val(points);
+		$('#opponent_progress').val(points);
+	}
 
 	var loadBoard = function(board) {
 		var pos;
